@@ -219,13 +219,12 @@ export const ContactFormSection = () => {
             {/* Message d'état */}
             {status.message && (
               <div
-                className={`flex items-center gap-2 p-4 rounded-lg text-sm font-medium ${
-                  status.type === "success"
+                className={`flex items-center gap-2 p-4 rounded-lg text-sm font-medium ${status.type === "success"
                     ? "bg-green-50 text-green-700 border border-green-200"
                     : status.type === "error"
-                    ? "bg-red-50 text-red-700 border border-red-200"
-                    : "bg-blue-50 text-blue-700 border border-blue-200"
-                }`}
+                      ? "bg-red-50 text-red-700 border border-red-200"
+                      : "bg-blue-50 text-blue-700 border border-blue-200"
+                  }`}
               >
                 {status.type === "success" && <CheckCircle2 className="h-5 w-5 text-green-600" />}
                 {status.type === "error" && <AlertCircle className="h-5 w-5 text-red-600" />}
@@ -245,8 +244,8 @@ export const ContactFormSection = () => {
                   {status.type === "loading"
                     ? "Envoi..."
                     : status.type === "success"
-                    ? "Message envoyé !"
-                    : "Envoyer le message"}
+                      ? "Message envoyé !"
+                      : "Envoyer le message"}
                 </span>
                 {status.type === "loading" ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
@@ -269,7 +268,7 @@ export const ContactFormSection = () => {
                 const IconComponent = detail.icon;
                 return (
                   <div key={detail.label} className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#e0e0ff] text-[#008080]">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#e0e0ff] text-[#010081]">
                       <IconComponent className="h-5 w-5" />
                     </div>
                     <div className="flex flex-col">

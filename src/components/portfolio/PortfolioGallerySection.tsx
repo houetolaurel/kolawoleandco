@@ -24,12 +24,11 @@ const chipStyles = {
   commerce: "bg-[#ff0081] text-[#e3fffe] font-normal",
   web: "bg-[#008080] text-white font-normal",
   ui: "bg-[#19188c] text-white font-bold",
-  pink: "bg-[#f6d4e533] text-[#ff0081] font-bold",
+  pink: "bg-[#f6d4e533] text-[#e3fffe] font-bold",
   teal: "bg-[#0080801a] text-white font-bold",
-  blue: "bg-[#0100811a] text-[#010081] font-bold",
-  react: "bg-[#00000001] text-[#008080] font-bold",
+  blue: "bg-[#0100811a] text-[#e3fffe] font-bold",
+  react: "bg-[#00000001] text-[#e3fffe] font-bold",
 };
-
 interface TagProps {
   children: string;
   variant: keyof typeof chipStyles;
@@ -37,14 +36,13 @@ interface TagProps {
 
 const Tag = ({ children, variant }: TagProps) => (
   <span
-    className={`inline-flex items-center rounded-full px-3 py-1 text-xs leading-4 ${chipStyles[variant]} ${
-      variant === "pink" ||
+    className={`inline-flex items-center rounded-full px-3 py-1 text-xs leading-4 ${chipStyles[variant]} ${variant === "pink" ||
       variant === "teal" ||
       variant === "blue" ||
       variant === "react"
-        ? "backdrop-blur-[2px] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.10),inset_-1px_0_1px_rgba(0,0,0,0.08)]"
-        : ""
-    } [font-family:'Hanken_Grotesk-Bold',Helvetica]`}
+      ? "backdrop-blur-[2px] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.10),inset_-1px_0_1px_rgba(0,0,0,0.08)]"
+      : ""
+      } [font-family:'Hanken_Grotesk-Bold',Helvetica]`}
   >
     {children}
   </span>
@@ -66,9 +64,8 @@ const ProjectOverlay = ({
   <>
     <div className="absolute inset-px bg-[#00000033]" />
     <div
-      className={`absolute bottom-px left-px flex w-[calc(100%_-_2px)] flex-col items-start gap-2 bg-[linear-gradient(0deg,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0)_100%)] ${
-        large ? "p-12" : "px-6 pb-6 pt-[26px]"
-      }`}
+      className={`absolute bottom-px left-px flex w-[calc(100%_-_2px)] flex-col items-start gap-2 bg-[linear-gradient(0deg,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0)_100%)] ${large ? "p-12" : "px-6 pb-6 pt-[26px]"
+        }`}
     >
       <div className="flex flex-wrap items-start gap-2">
         {tags.map((tag) => (
@@ -76,9 +73,8 @@ const ProjectOverlay = ({
         ))}
       </div>
       <h3
-        className={`m-0 text-white [font-family:'Hanken_Grotesk-SemiBold',Helvetica] font-semibold tracking-[0] ${
-          large ? "text-[28px] leading-9" : "text-xl leading-7"
-        }`}
+        className={`m-0 text-white [font-family:'Hanken_Grotesk-SemiBold',Helvetica] font-semibold tracking-[0] ${large ? "text-[28px] leading-9" : "text-xl leading-7"
+          }`}
       >
         {title}
       </h3>
@@ -122,11 +118,10 @@ export const PortfolioShowcaseSection = () => {
               type="button"
               onClick={() => setActiveFilter(filter)}
               aria-pressed={activeFilter === filter}
-              className={`inline-flex flex-col items-center justify-center rounded-full border px-6 py-2 [font-family:'Hanken_Grotesk-SemiBold',Helvetica] text-sm font-semibold leading-5 tracking-[0.70px] transition-colors ${
-                activeFilter === filter
-                  ? "border-[#008080] bg-[#008080] text-white"
-                  : "border-[#00808033] bg-transparent text-[#1b1c1c] hover:border-[#008080]"
-              }`}
+              className={`inline-flex flex-col items-center justify-center rounded-full border px-6 py-2 [font-family:'Hanken_Grotesk-SemiBold',Helvetica] text-sm font-semibold leading-5 tracking-[0.70px] transition-colors ${activeFilter === filter
+                ? "border-[#008080] bg-[#008080] text-white"
+                : "border-[#00808033] bg-transparent text-[#1b1c1c] hover:border-[#008080]"
+                }`}
             >
               {filter}
             </button>

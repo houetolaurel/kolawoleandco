@@ -125,12 +125,12 @@ export const AgencyServicesSection = () => {
               </div>
               {/* Badge positioned absolutely, unrotated */}
               <div className="absolute -bottom-6 -left-6 flex items-center gap-4 rounded-xl border border-slate-100 bg-white p-4 shadow-lg z-10">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#010081]">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#008080]">
                   <TrendingUp className="h-6 w-6 text-white" />
                 </div>
                 <div>
                   <span className="text-xs font-semibold uppercase text-slate-500 tracking-wider">Croissance</span>
-                  <p className="text-2xl font-bold text-[#010081] leading-none mt-1">+120%</p>
+                  <p className="text-2xl font-bold text-[#008080] leading-none mt-1">+120%</p>
                 </div>
               </div>
             </div>
