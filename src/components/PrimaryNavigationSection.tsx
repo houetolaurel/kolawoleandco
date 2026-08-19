@@ -6,7 +6,7 @@ import group from "../assets/group.svg";
 const navigationItems = [
   { label: "Accueil", href: "/" },
   { label: "Portfolio", href: "/portfolio" },
-  { label: "Expertise", href: "/#expertise" },
+  { label: "Expertise", href: "/expertise" },
   { label: "Témoignages", href: "/temoignages" },
   { label: "Contact", href: "/contact" },
 ];
@@ -19,6 +19,8 @@ export const PrimaryNavigationSection = () => {
   useEffect(() => {
     if (location.pathname === "/portfolio") {
       setActiveItem("Portfolio");
+    } else if (location.pathname === "/expertise") {
+      setActiveItem("Expertise");
     } else if (location.pathname === "/temoignages") {
       setActiveItem("Témoignages");
     } else if (location.pathname === "/contact") {

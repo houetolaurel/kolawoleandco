@@ -3,6 +3,7 @@ import { RootLayout } from "./Layout";
 
 // Pages — all imported eagerly (no lazy loading)
 import { AccueilsKolawolCo } from "./pages/AccueilPage";
+import { ExpertisePage } from "./pages/ExpertisePage";
 import { PortfolioPage } from "./pages/PortfolioPage";
 import { TmoignagesKolawol } from "./pages/TemoignagesPage";
 import { ContactKolawolCo } from "./pages/ContactPage";
@@ -16,6 +17,7 @@ export default function App() {
         {/* RootLayout is mounted ONCE — nav & footer never remount on navigation */}
         <Route element={<RootLayout />}>
           <Route path="/" element={<AccueilsKolawolCo />} />
+          <Route path="/expertise" element={<ExpertisePage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/temoignages" element={<TmoignagesKolawol />} />
           <Route path="/contact" element={<ContactKolawolCo />} />
