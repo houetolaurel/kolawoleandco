@@ -1,7 +1,7 @@
 import { Quote } from "lucide-react";
-import ceo1 from "../../assets/ceo1.JPG";
-import ceo2 from "../../assets/ceo2.JPG";
-import ceo3 from "../../assets/ceo3.png";
+const ceo1 = "/images/ceo1.jpg";
+const ceo2 = "/images/ceo2.jpg";
+const ceo3 = "/images/ceo3.jpg";
 
 interface Testimonial {
   id: string;
@@ -70,6 +70,10 @@ export const ClientTestimonialsSection = () => {
               <img
                 src={item.avatar}
                 alt={`Portrait de ${item.name}`}
+                width={64}
+                height={64}
+                loading="lazy"
+                decoding="async"
                 className={`rounded-full object-cover border-2 border-[#008080] ${
                   item.isFeatured ? "w-16 h-16" : "w-12 h-12"
                 }`}

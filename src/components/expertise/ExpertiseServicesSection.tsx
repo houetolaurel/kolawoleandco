@@ -1,7 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import { Layout, ShoppingBag, Code2 } from "lucide-react";
 
-import devIllustration from "../../assets/Illustration dev.jpg";
+const devIllustration = "/images/Illustration dev.jpg";
 
 const designTags = ["Figma", "Prototypage", "Design Systems"];
 const ecommerceTags = ["Shopify"];
@@ -162,6 +162,10 @@ export const ExpertiseServicesSection = () => {
                 className="relative self-stretch w-full object-cover animate-fade-in"
                 alt="Développeur en plein travail"
                 src={devIllustration}
+                width={1000}
+                height={600}
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </article>

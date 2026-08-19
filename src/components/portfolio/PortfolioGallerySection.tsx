@@ -1,11 +1,11 @@
 import { useMemo, useState } from "react";
 
-import image1 from "../../assets/image1.png"; // E-commerce
-import image2 from "../../assets/image5.png"; // Prototype
-import image3 from "../../assets/image4.png"; // Mariage
-import image4 from "../../assets/image3.png"; // Hohaya
-import image5 from "../../assets/lmp.png"; // Location
-import image6 from "../../assets/image6.png"; // Diaspora Connect
+const image1 = "/images/image1.jpg"; // E-commerce
+const image2 = "/images/image5.jpg"; // Prototype
+const image3 = "/images/image4.jpg"; // Mariage
+const image4 = "/images/image3.jpg"; // Hohaya
+const image5 = "/images/lmp.jpg"; // Location
+const image6 = "/images/image6.jpg"; // Diaspora Connect
 
 type Filter = "Tous" | "Sites Web" | "Prototype interactif" | "E-commerce";
 
@@ -144,6 +144,10 @@ export const PortfolioShowcaseSection = () => {
                 className="absolute left-px top-px h-[calc(100%_-_1px)] w-[calc(100%_-_1px)] object-cover"
                 alt="Aperçu du site e-commerce"
                 src={image1}
+                width={760}
+                height={344}
+                loading="lazy"
+                decoding="async"
               />
               <ProjectOverlay
                 large
@@ -168,6 +172,10 @@ export const PortfolioShowcaseSection = () => {
                 className="absolute left-px top-px h-[calc(100%_-_1px)] w-[calc(100%_-_1px)] object-cover"
                 alt="Aperçu de Diaspora Connect"
                 src={image6}
+                width={368}
+                height={344}
+                loading="lazy"
+                decoding="async"
               />
               <ProjectOverlay
                 tags={[
@@ -191,6 +199,10 @@ export const PortfolioShowcaseSection = () => {
                     className="absolute left-px top-px h-[calc(100%_-_1px)] w-[calc(100%_-_1px)] object-cover"
                     alt="Aperçu du site mariage"
                     src={image3}
+                    width={800}
+                    height={582}
+                    loading="lazy"
+                    decoding="async"
                   />
                   <ProjectOverlay
                     tags={[
@@ -212,6 +224,10 @@ export const PortfolioShowcaseSection = () => {
                     className="absolute left-px top-px h-[calc(100%_-_1px)] w-[calc(100%_-_1px)] object-cover"
                     alt="Aperçu de la plateforme de services"
                     src={image2}
+                    width={800}
+                    height={471}
+                    loading="lazy"
+                    decoding="async"
                   />
                   <ProjectOverlay
                     tags={[
@@ -234,6 +250,10 @@ export const PortfolioShowcaseSection = () => {
                   className="absolute left-px top-px h-[calc(100%_-_1px)] w-[calc(100%_-_1px)] object-cover"
                   alt="Aperçu du site Hohaya"
                   src={image4}
+                  width={396}
+                  height={1084}
+                  loading="lazy"
+                  decoding="async"
                 />
                 <ProjectOverlay
                   tags={[
@@ -256,6 +276,10 @@ export const PortfolioShowcaseSection = () => {
                 className="absolute left-0 top-0 h-full w-full object-cover"
                 alt="Aperçu de la plateforme de location"
                 src={image5}
+                width={1152}
+                height={435}
+                loading="lazy"
+                decoding="async"
               />
               <ProjectOverlay
                 large

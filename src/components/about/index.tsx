@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { PrimaryNavigationSection } from "../PrimaryNavigationSection";
 import { SiteFooterSection } from "../SiteFooterSection";
-import notreCeo from "../../assets/notre_ceo.jpg";
+const notreCeo = "/images/notre_ceo.jpg";
 
 export const AboutPage = () => {
   useEffect(() => {
@@ -78,6 +78,10 @@ export const AboutPage = () => {
               <img
                 src={notreCeo}
                 alt="HOUETO Kolawolé Laurel - CEO"
+                width={320}
+                height={320}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-500"
               />
             </div>

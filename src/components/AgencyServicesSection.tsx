@@ -1,5 +1,5 @@
 import { type ComponentType } from "react";
-import accueilImage from "../assets/accueil_image.jpg";
+const accueilImage = "/images/accueil_image.jpg";
 import {
   PenTool,
   Code2,
@@ -115,6 +115,11 @@ export const AgencyServicesSection = () => {
                     src={accueilImage}
                     alt="Aperçu d'un projet réalisé par Kolawolé & Co."
                     className="h-full w-full object-cover"
+                    width={600}
+                    height={450}
+                    loading="eager"
+                    decoding="async"
+                    fetchPriority="high"
                   />
                 </div>
               </div>
