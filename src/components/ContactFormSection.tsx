@@ -42,10 +42,18 @@ export const ContactFormSection = () => {
     event.preventDefault();
     setStatus({ type: "loading", message: "Envoi de votre message..." });
 
-    // Paramètres transmis au template EmailJS ({{name}}, {{email}}, {{subject}}, {{message}}, {{time}})
+    // Paramètres complets transmis au template EmailJS
     const templateParams = {
+      to_email: "kolawoleandco20@gmail.com",
+      recipient_email: "kolawoleandco20@gmail.com",
+      to_name: "Kolawolé & Co.",
       name: formData.name,
+      from_name: formData.name,
       email: formData.email,
+      from_email: formData.email,
+      reply_to: formData.email,
+      user_name: formData.name,
+      user_email: formData.email,
       subject: formData.subject,
       message: formData.message,
       time: new Date().toLocaleString("fr-FR", {

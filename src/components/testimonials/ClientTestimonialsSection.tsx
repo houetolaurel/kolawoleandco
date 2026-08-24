@@ -1,7 +1,6 @@
 import { Quote } from "lucide-react";
 const ceo1 = "/images/ceo1.jpg";
-const ceo2 = "/images/ceo2.jpg";
-const ceo3 = "/images/ceo3.jpg";
+const merveilImg = "/images/merveil.jpg";
 
 interface Testimonial {
   id: string;
@@ -9,7 +8,6 @@ interface Testimonial {
   name: string;
   role: string;
   avatar: string;
-  isFeatured?: boolean;
 }
 
 const testimonials: Testimonial[] = [
@@ -20,47 +18,30 @@ const testimonials: Testimonial[] = [
     name: "Uriel Atihou",
     role: "CEO, LMP - Location Maison plus",
     avatar: ceo1,
-    isFeatured: true,
   },
   {
-    id: "merveil-houennagnon",
+    id: "merveil-houenagnon",
     quote:
       "Une collaboration fluide et des résultats qui dépassent nos attentes. Leur expertise technique est indéniable.",
     name: "Merveil HOUENAGNON",
     role: "CEO, Data Afrique Hub",
-    avatar: ceo2,
-  },
-  {
-    id: "jean-dupont",
-    quote:
-      "Leur souci du détail et leur approche centrée sur l'utilisateur ont révolutionné notre application mobile.",
-    name: "Jean Dupont",
-    role: "CEO, Hohaya",
-    avatar: ceo3,
+    avatar: merveilImg,
   },
 ];
 
 export const ClientTestimonialsSection = () => {
   return (
     <section aria-label="Témoignages clients" className="w-full">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 w-full">
         {testimonials.map((item) => (
           <article
             key={item.id}
-            className={`flex flex-col justify-between p-6 md:p-8 rounded-xl border border-[#BDC9C8]/30 bg-white/70 backdrop-blur-md shadow-sm transition-all duration-300 hover:shadow-md ${
-              item.isFeatured ? "md:col-span-2" : ""
-            }`}
+            className="flex flex-col justify-between p-6 sm:p-8 rounded-2xl border border-[#BDC9C8]/30 bg-white/70 backdrop-blur-md shadow-sm transition-all duration-300 hover:shadow-md"
           >
             <div className="space-y-4">
               <Quote className="h-6 w-6 text-[#008080]/40 transform rotate-180" />
               <blockquote className="text-[#1B1C1C]">
-                <p
-                  className={`font-sans ${
-                    item.isFeatured
-                      ? "text-xl md:text-2xl lg:text-[28px] font-semibold leading-snug md:leading-9"
-                      : "text-base md:text-lg font-normal leading-relaxed"
-                  }`}
-                >
+                <p className="font-sans text-base sm:text-lg lg:text-xl font-normal leading-relaxed">
                   &quot;{item.quote}&quot;
                 </p>
               </blockquote>
@@ -74,15 +55,13 @@ export const ClientTestimonialsSection = () => {
                 height={64}
                 loading="lazy"
                 decoding="async"
-                className={`rounded-full object-cover border-2 border-[#008080] ${
-                  item.isFeatured ? "w-16 h-16" : "w-12 h-12"
-                }`}
+                className="rounded-full object-cover border-2 border-[#008080] w-14 h-14 shrink-0"
               />
               <div className="flex flex-col">
-                <span className="font-semibold text-sm md:text-base text-[#1B1C1C] tracking-wide">
+                <span className="font-semibold text-sm sm:text-base text-[#1B1C1C] tracking-wide">
                   {item.name}
                 </span>
-                <span className="text-xs md:text-sm text-[#3E4949]">
+                <span className="text-xs sm:text-sm text-[#3E4949]">
                   {item.role}
                 </span>
               </div>
