@@ -23,7 +23,7 @@ export const PartnerLogosSection = () => {
   return (
     <section
       aria-labelledby="partners-heading"
-      className="flex flex-col items-center gap-10 w-full pt-16 border-t border-[#BDC9C8]/30"
+      className="flex flex-col items-center gap-8 w-full pt-16 border-t border-[#BDC9C8]/30"
     >
       <div className="flex flex-col items-center gap-2 text-center">
         <span className="text-xs font-bold uppercase tracking-widest text-[#008080]">
@@ -42,31 +42,29 @@ export const PartnerLogosSection = () => {
 
       <div
         aria-label="Liste des partenaires"
-        className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 w-full max-w-2xl"
+        className="flex flex-wrap items-center justify-center gap-10 sm:gap-16 md:gap-24 w-full max-w-3xl pt-2"
       >
         {partners.map((partner) => (
           <div
             key={partner.name}
-            className="group flex flex-col items-center justify-center p-8 sm:p-10 rounded-2xl border border-[#BDC9C8]/30 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300 hover:shadow-xl hover:border-[#008080]/50 hover:-translate-y-1"
+            className="flex flex-col items-center justify-center gap-3 transition-transform duration-300 hover:scale-105"
           >
-            <div className="h-28 sm:h-32 w-full flex items-center justify-center p-3">
+            <div className="h-14 sm:h-16 flex items-center justify-center">
               <img
                 src={partner.logo}
                 alt={`Logo ${partner.name}`}
-                width={180}
-                height={120}
+                width={100}
+                height={60}
                 loading="lazy"
                 decoding="async"
-                className={`max-h-24 sm:max-h-28 max-w-[200px] w-auto object-contain transition-transform duration-300 group-hover:scale-105 ${
-                  partner.isSvg ? "filter drop-shadow-sm" : "rounded-xl shadow-xs"
+                className={`max-h-12 sm:max-h-14 max-w-[120px] sm:max-w-[140px] w-auto object-contain ${
+                  partner.isSvg ? "" : "rounded-md"
                 }`}
               />
             </div>
-            <div className="mt-4 flex flex-col items-center">
-              <span className="font-semibold text-lg text-[#1B1C1C] group-hover:text-[#008080] transition-colors">
-                {partner.name}
-              </span>
-            </div>
+            <span className="font-semibold text-sm sm:text-base text-[#3E4949] tracking-wide">
+              {partner.name}
+            </span>
           </div>
         ))}
       </div>
