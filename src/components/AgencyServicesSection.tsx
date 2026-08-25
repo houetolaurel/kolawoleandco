@@ -92,14 +92,14 @@ export const AgencyServicesSection = () => {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
           {/* Texte de gauche */}
           <div className="flex flex-col gap-6 lg:col-span-7">
-            <h1 className="text-4xl font-extrabold leading-tight text-[#1b1c1c] sm:text-5xl lg:text-6xl">
+            <h1 className="text-3xl font-extrabold leading-tight text-[#1b1c1c] sm:text-5xl lg:text-6xl">
               Transformons votre vision en{" "}
               <span className="relative inline-block">
                 <span className="relative z-10 text-[#008080]">réalité digitale</span>
                 <span className="absolute bottom-[4px] left-0 z-0 h-[10px] w-full bg-[#dbe2ff]" />
               </span>
             </h1>
-            <p className="max-w-xl text-lg text-[#3e4949]">
+            <p className="max-w-xl text-base sm:text-lg text-[#3e4949] leading-relaxed">
               Une approche sur-mesure alliant design d'exception et ingénierie de pointe
               pour créer des expériences digitales qui marquent les esprits et génèrent de la valeur.
             </p>
@@ -109,7 +109,7 @@ export const AgencyServicesSection = () => {
           <div className="relative flex justify-center lg:col-span-5 pt-6 lg:pt-0">
             <div className="relative w-full max-w-md">
               {/* Image card with slight rotation */}
-              <div className="rotate-[3deg] rounded-2xl border border-white bg-white p-4 shadow-xl">
+              <div className="rotate-[2deg] sm:rotate-[3deg] rounded-2xl border border-white bg-white p-3 sm:p-4 shadow-xl">
                 <div className="aspect-[4/3] w-full overflow-hidden rounded-xl bg-gray-200">
                   <img
                     src={accueilImage}
@@ -124,13 +124,13 @@ export const AgencyServicesSection = () => {
                 </div>
               </div>
               {/* Badge positioned absolutely, unrotated */}
-              <div className="absolute -bottom-6 -left-6 flex items-center gap-4 rounded-xl border border-slate-100 bg-white p-4 shadow-lg z-10">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#008080]">
-                  <TrendingUp className="h-6 w-6 text-white" />
+              <div className="absolute -bottom-4 -left-2 sm:-bottom-6 sm:-left-6 flex items-center gap-3 sm:gap-4 rounded-xl border border-slate-100 bg-white p-3 sm:p-4 shadow-lg z-10">
+                <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-[#008080]">
+                  <TrendingUp className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                 </div>
                 <div>
-                  <span className="text-xs font-semibold uppercase text-slate-500 tracking-wider">Croissance</span>
-                  <p className="text-2xl font-bold text-[#008080] leading-none mt-1">+120%</p>
+                  <span className="text-[10px] sm:text-xs font-semibold uppercase text-slate-500 tracking-wider">Croissance</span>
+                  <p className="text-xl sm:text-2xl font-bold text-[#008080] leading-none mt-0.5">+120%</p>
                 </div>
               </div>
             </div>

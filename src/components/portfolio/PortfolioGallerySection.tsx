@@ -16,19 +16,16 @@ const filters: Filter[] = [
   "E-commerce",
 ];
 
-
-const cardShell =
-  "relative overflow-hidden rounded-xl border border-solid border-[#bdc9c84c] bg-[#ffffff01] shadow-[0px_10px_30px_-10px_#0100810d] transition-all duration-300";
-
 const chipStyles = {
-  commerce: "bg-[#ff0081] text-[#e3fffe] font-normal",
-  web: "bg-[#008080] text-white font-normal",
-  ui: "bg-[#19188c] text-white font-bold",
-  pink: "bg-[#f6d4e533] text-[#e3fffe] font-bold",
-  teal: "bg-[#0080801a] text-white font-bold",
-  blue: "bg-[#0100811a] text-[#e3fffe] font-bold",
-  react: "bg-[#00000001] text-[#e3fffe] font-bold",
+  commerce: "bg-[#ff0081] text-white font-medium",
+  web: "bg-[#008080] text-white font-medium",
+  ui: "bg-[#19188c] text-white font-medium",
+  pink: "bg-[#ff008126] text-white font-semibold backdrop-blur-md border border-white/20",
+  teal: "bg-[#00808033] text-white font-semibold backdrop-blur-md border border-white/20",
+  blue: "bg-[#01008133] text-white font-semibold backdrop-blur-md border border-white/20",
+  react: "bg-black/30 text-white font-semibold backdrop-blur-md border border-white/20",
 };
+
 interface TagProps {
   children: string;
   variant: keyof typeof chipStyles;
@@ -36,13 +33,7 @@ interface TagProps {
 
 const Tag = ({ children, variant }: TagProps) => (
   <span
-    className={`inline-flex items-center rounded-full px-3 py-1 text-xs leading-4 ${chipStyles[variant]} ${variant === "pink" ||
-      variant === "teal" ||
-      variant === "blue" ||
-      variant === "react"
-      ? "backdrop-blur-[2px] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.10),inset_-1px_0_1px_rgba(0,0,0,0.08)]"
-      : ""
-      } [font-family:'Hanken_Grotesk-Bold',Helvetica]`}
+    className={`inline-flex items-center rounded-full px-3 py-1 text-xs leading-4 ${chipStyles[variant]}`}
   >
     {children}
   </span>
@@ -62,30 +53,35 @@ const ProjectOverlay = ({
   large = false,
 }: OverlayProps) => (
   <>
-    <div className="absolute inset-px bg-[#00000033]" />
+    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none transition-opacity duration-300 group-hover:from-black/90 group-hover:via-black/40" />
     <div
-      className={`absolute bottom-px left-px flex w-[calc(100%_-_2px)] flex-col items-start gap-2 bg-[linear-gradient(0deg,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0)_100%)] ${large ? "p-12" : "px-6 pb-6 pt-[26px]"
-        }`}
+      className={`absolute bottom-0 left-0 right-0 flex flex-col items-start gap-2.5 z-10 ${
+        large ? "p-6 sm:p-8 md:p-10" : "p-5 sm:p-6"
+      }`}
     >
-      <div className="flex flex-wrap items-start gap-2">
+      <div className="flex flex-wrap items-center gap-2">
         {tags.map((tag) => (
           <Tag key={`${tag.children}-${tag.variant}`} {...tag} />
         ))}
       </div>
       <h3
-        className={`m-0 text-white [font-family:'Hanken_Grotesk-SemiBold',Helvetica] font-semibold tracking-[0] ${large ? "text-[28px] leading-9" : "text-xl leading-7"
-          }`}
+        className={`font-semibold text-white tracking-tight leading-snug ${
+          large ? "text-xl sm:text-2xl md:text-3xl" : "text-lg sm:text-xl"
+        }`}
       >
         {title}
       </h3>
-      {description ? (
-        <p className="m-0 text-base leading-6 text-[#ffffffe6] [font-family:'Manrope-Regular',Helvetica]">
+      {description && (
+        <p className="text-xs sm:text-sm md:text-base leading-relaxed text-white/80 max-w-xl line-clamp-2 sm:line-clamp-none">
           {description}
         </p>
-      ) : null}
+      )}
     </div>
   </>
 );
+
+const cardShell =
+  "group relative overflow-hidden rounded-2xl border border-[#bdc9c84c] shadow-[0px_8px_30px_#0100810d] transition-all duration-300 hover:shadow-2xl hover:-translate-y-1";
 
 export const PortfolioShowcaseSection = () => {
   const [activeFilter, setActiveFilter] = useState<Filter>("Tous");
@@ -100,194 +96,193 @@ export const PortfolioShowcaseSection = () => {
     [activeFilter],
   );
 
-
-
   return (
     <section
-      className="flex w-full flex-col items-center gap-[102px]"
+      className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 sm:pb-32 flex flex-col items-center gap-10 sm:gap-14"
       aria-label="Portfolio"
     >
-      <div className="flex w-full max-w-screen-xl flex-col items-center gap-12 px-16">
-        <nav
-          className="flex w-full items-start justify-center gap-3"
-          aria-label="Filtrer les projets"
-        >
-          {filters.map((filter) => (
-            <button
-              key={filter}
-              type="button"
-              onClick={() => setActiveFilter(filter)}
-              aria-pressed={activeFilter === filter}
-              className={`inline-flex flex-col items-center justify-center rounded-full border px-6 py-2 [font-family:'Hanken_Grotesk-SemiBold',Helvetica] text-sm font-semibold leading-5 tracking-[0.70px] transition-colors ${activeFilter === filter
-                ? "border-[#008080] bg-[#008080] text-white"
-                : "border-[#00808033] bg-transparent text-[#1b1c1c] hover:border-[#008080]"
-                }`}
-            >
-              {filter}
-            </button>
-          ))}
-        </nav>
+      {/* Filtres réactifs */}
+      <nav
+        className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 w-full"
+        aria-label="Filtrer les projets"
+      >
+        {filters.map((filter) => (
+          <button
+            key={filter}
+            type="button"
+            onClick={() => setActiveFilter(filter)}
+            aria-pressed={activeFilter === filter}
+            className={`inline-flex items-center justify-center rounded-full px-5 py-2 text-xs sm:text-sm font-semibold tracking-wide transition-all duration-200 cursor-pointer ${
+              activeFilter === filter
+                ? "bg-[#008080] text-white shadow-md"
+                : "border border-[#00808033] bg-transparent text-[#1b1c1c] hover:border-[#008080] hover:bg-[#0080800d]"
+            }`}
+          >
+            {filter}
+          </button>
+        ))}
+      </nav>
 
-        <div className="flex w-full flex-wrap items-start justify-center gap-6">
-          {/* Projet 1: E-commerce */}
-          {visibleProjects.ecommerce && (
-            <article
-              className={`${cardShell} h-[344px] w-[760px]`}
-              aria-label="Projet e-commerce"
-            >
-              <img
-                className="absolute left-px top-px h-[calc(100%_-_1px)] w-[calc(100%_-_1px)] object-cover"
-                alt="Aperçu du site e-commerce"
-                src={image1}
-                width={760}
-                height={344}
-                loading="lazy"
-                decoding="async"
-              />
-              <ProjectOverlay
-                large
-                tags={[
-                  { children: "E-commerce", variant: "commerce" },
-                  { children: "UX/UI", variant: "pink" },
-                  { children: "Figma", variant: "pink" },
-                ]}
-                title="Conception de maquette pour site e-commerce"
-                description="Optimisation de l'expérience d'achat pour une marque locale."
-              />
-            </article>
-          )}
+      {/* Grille de projets fluide et responsive */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8 w-full">
+        {/* Projet 1: E-commerce */}
+        {visibleProjects.ecommerce && (
+          <article
+            className={`${cardShell} lg:col-span-8 min-h-[300px] h-[340px] sm:h-[400px]`}
+            aria-label="Projet e-commerce"
+          >
+            <img
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              alt="Aperçu du site e-commerce"
+              src={image1}
+              width={760}
+              height={400}
+              loading="lazy"
+              decoding="async"
+            />
+            <ProjectOverlay
+              large
+              tags={[
+                { children: "E-commerce", variant: "commerce" },
+                { children: "UX/UI", variant: "pink" },
+                { children: "Figma", variant: "pink" },
+              ]}
+              title="Conception de maquette pour site e-commerce"
+              description="Optimisation complète de l'expérience d'achat et du tunnel de conversion pour une marque locale."
+            />
+          </article>
+        )}
 
-          {/* Projet 2: Diaspora Connect */}
-          {visibleProjects.prototype && (
-            <article
-              className={`${cardShell} h-[344px] w-[368px]`}
-              aria-label="Projet Diaspora Connect"
-            >
-              <img
-                className="absolute left-px top-px h-[calc(100%_-_1px)] w-[calc(100%_-_1px)] object-cover"
-                alt="Aperçu de Diaspora Connect"
-                src={image6}
-                width={368}
-                height={344}
-                loading="lazy"
-                decoding="async"
-              />
-              <ProjectOverlay
-                tags={[
-                  { children: "UI/UX", variant: "ui" },
-                  { children: "Figma", variant: "blue" },
-                ]}
-                title="Diaspora connect, FinTech app"
-              />
-            </article>
-          )}
+        {/* Projet 2: Diaspora Connect */}
+        {visibleProjects.prototype && (
+          <article
+            className={`${cardShell} lg:col-span-4 min-h-[300px] h-[340px] sm:h-[400px]`}
+            aria-label="Projet Diaspora Connect"
+          >
+            <img
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              alt="Aperçu de Diaspora Connect"
+              src={image6}
+              width={400}
+              height={400}
+              loading="lazy"
+              decoding="async"
+            />
+            <ProjectOverlay
+              tags={[
+                { children: "UI/UX", variant: "ui" },
+                { children: "Figma", variant: "blue" },
+              ]}
+              title="Diaspora connect, FinTech app"
+              description="Application mobile financière pour la diaspora africaine."
+            />
+          </article>
+        )}
 
-          <div className="flex w-[1152px] items-start gap-[31px]">
-            <div className="flex flex-1 flex-col items-start gap-[31px]">
-              {/* Projet 3: Site vitrine Mariage */}
-              {visibleProjects.web && (
-                <article
-                  className={`${cardShell} h-[582px] w-full`}
-                  aria-label="Projet site vitrine Mariage"
-                >
-                  <img
-                    className="absolute left-px top-px h-[calc(100%_-_1px)] w-[calc(100%_-_1px)] object-cover"
-                    alt="Aperçu du site mariage"
-                    src={image3}
-                    width={800}
-                    height={582}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <ProjectOverlay
-                    tags={[
-                      { children: "Developpement web", variant: "web" },
-                      { children: "React", variant: "teal" },
-                    ]}
-                    title="Site vitrine pour agence d'organisation de mariage"
-                  />
-                </article>
-              )}
+        {/* Projet 3: Site vitrine Mariage */}
+        {visibleProjects.web && (
+          <article
+            className={`${cardShell} lg:col-span-6 min-h-[300px] h-[340px] sm:h-[400px]`}
+            aria-label="Projet site vitrine Mariage"
+          >
+            <img
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              alt="Aperçu du site mariage"
+              src={image3}
+              width={600}
+              height={400}
+              loading="lazy"
+              decoding="async"
+            />
+            <ProjectOverlay
+              tags={[
+                { children: "Développement web", variant: "web" },
+                { children: "React", variant: "teal" },
+              ]}
+              title="Site vitrine pour agence d'organisation de mariage"
+              description="Expérience immersive avec animations fluides et galerie élégante."
+            />
+          </article>
+        )}
 
-              {/* Projet 4: Plateforme de prestation */}
-              {visibleProjects.prototype && (
-                <article
-                  className={`${cardShell} h-[471px] w-full`}
-                  aria-label="Projet plateforme de services"
-                >
-                  <img
-                    className="absolute left-px top-px h-[calc(100%_-_1px)] w-[calc(100%_-_1px)] object-cover"
-                    alt="Aperçu de la plateforme de services"
-                    src={image2}
-                    width={800}
-                    height={471}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <ProjectOverlay
-                    tags={[
-                      { children: "UI/UX", variant: "ui" },
-                      { children: "Figma", variant: "blue" },
-                    ]}
-                    title="Plateforme de prestation de service avec dashboard personnalisé"
-                  />
-                </article>
-              )}
-            </div>
+        {/* Projet 4: Plateforme de prestation */}
+        {visibleProjects.prototype && (
+          <article
+            className={`${cardShell} lg:col-span-6 min-h-[300px] h-[340px] sm:h-[400px]`}
+            aria-label="Projet plateforme de services"
+          >
+            <img
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              alt="Aperçu de la plateforme de services"
+              src={image2}
+              width={600}
+              height={400}
+              loading="lazy"
+              decoding="async"
+            />
+            <ProjectOverlay
+              tags={[
+                { children: "UI/UX", variant: "ui" },
+                { children: "Figma", variant: "blue" },
+              ]}
+              title="Plateforme de prestation de services"
+              description="Dashboard personnalisé et gestion simplifiée des réservations."
+            />
+          </article>
+        )}
 
-            {/* Projet 5: Hohaya */}
-            {visibleProjects.web && (
-              <article
-                className={`${cardShell} h-[1084px] w-[396px]`}
-                aria-label="Projet Hohaya"
-              >
-                <img
-                  className="absolute left-px top-px h-[calc(100%_-_1px)] w-[calc(100%_-_1px)] object-cover"
-                  alt="Aperçu du site Hohaya"
-                  src={image4}
-                  width={396}
-                  height={1084}
-                  loading="lazy"
-                  decoding="async"
-                />
-                <ProjectOverlay
-                  tags={[
-                    { children: "UI/UX", variant: "ui" },
-                    { children: "Figma", variant: "blue" },
-                  ]}
-                  title="HOHAYA site web mobile-first de location de maison"
-                />
-              </article>
-            )}
-          </div>
+        {/* Projet 5: Hohaya */}
+        {visibleProjects.web && (
+          <article
+            className={`${cardShell} lg:col-span-5 min-h-[300px] h-[340px] sm:h-[400px]`}
+            aria-label="Projet Hohaya"
+          >
+            <img
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              alt="Aperçu du site Hohaya"
+              src={image4}
+              width={500}
+              height={400}
+              loading="lazy"
+              decoding="async"
+            />
+            <ProjectOverlay
+              tags={[
+                { children: "UI/UX", variant: "ui" },
+                { children: "Mobile-first", variant: "blue" },
+              ]}
+              title="HOHAYA - Location immobilière mobile-first"
+              description="Plateforme intuitive de recherche et de réservation de logements."
+            />
+          </article>
+        )}
 
-          {/* Projet 6: Location de maison */}
-          {visibleProjects.web && (
-            <article
-              className={`${cardShell} h-[435px] w-[1152px]`}
-              aria-label="Projet plateforme de location"
-            >
-              <img
-                className="absolute left-0 top-0 h-full w-full object-cover"
-                alt="Aperçu de la plateforme de location"
-                src={image5}
-                width={1152}
-                height={435}
-                loading="lazy"
-                decoding="async"
-              />
-              <ProjectOverlay
-                large
-                tags={[
-                  { children: "Developpement web", variant: "web" },
-                  { children: "React", variant: "react" },
-                ]}
-                title="Plateforme de Location de maison"
-                description="Création d'un outil de gestion immobilière sur-mesure simplifiant les flux complexes avec une interface intuitive et épurée."
-              />
-            </article>
-          )}
-        </div>
+        {/* Projet 6: Location de maison */}
+        {visibleProjects.web && (
+          <article
+            className={`${cardShell} lg:col-span-7 min-h-[300px] h-[340px] sm:h-[400px]`}
+            aria-label="Projet plateforme de location"
+          >
+            <img
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              alt="Aperçu de la plateforme de location"
+              src={image5}
+              width={700}
+              height={400}
+              loading="lazy"
+              decoding="async"
+            />
+            <ProjectOverlay
+              large
+              tags={[
+                { children: "Développement web", variant: "web" },
+                { children: "React", variant: "react" },
+              ]}
+              title="Plateforme de gestion immobilière"
+              description="Outil de gestion sur-mesure simplifiant les flux complexes avec une interface moderne et sécurisée."
+            />
+          </article>
+        )}
       </div>
     </section>
   );
