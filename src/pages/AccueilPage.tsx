@@ -6,10 +6,13 @@ export const AccueilsKolawolCo = () => {
   const { hash } = useLocation();
 
   useEffect(() => {
-    document.title = "Kolawolé & Co. | Agence Design UI/UX & Développement Web Premium";
+    document.title = "Lumen Agency | Agence Design UI/UX, Développement Web & Photographie";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute("content", "Kolawolé & Co. est une agence digitale d'excellence spécialisée dans le design d'interfaces utilisateur (UI/UX) d'exception, le développement web Fullstack sur-mesure et les boutiques e-commerce.");
+      metaDesc.setAttribute(
+        "content",
+        "Lumen Agency est une agence digitale d'excellence spécialisée dans le design d'interfaces utilisateur (UI/UX), le développement web Fullstack, l'e-commerce, la photographie et la couverture vidéo."
+      );
     }
     if (hash) {
       const el = document.getElementById(hash.slice(1));
@@ -19,3 +22,5 @@ export const AccueilsKolawolCo = () => {
 
   return <AgencyServicesSection />;
 };
+
+export default AccueilsKolawolCo;

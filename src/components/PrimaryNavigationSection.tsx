@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import group from "../assets/group.svg";
 
 const navigationItems = [
   { label: "Accueil", href: "/" },
@@ -36,14 +35,14 @@ export const PrimaryNavigationSection = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-[#bdc9c84c] bg-[#faf9f9cc] backdrop-blur-md">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-12">
+      <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-6 lg:px-12">
         <a
           href="/"
-          aria-label="Kolawolé & co. - Accueil"
+          aria-label="Lumen Agency - Accueil"
           onClick={() => setActiveItem("Accueil")}
-          className="flex items-center"
+          className="flex items-center py-2"
         >
-          <img className="h-14 w-auto object-contain" alt="Kolawolé & co." src={group} />
+          <img className="h-16 sm:h-20 w-auto object-contain" alt="Lumen Agency" src="/images/Logo%20Lumen%20Agency%20Light.svg" />
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">

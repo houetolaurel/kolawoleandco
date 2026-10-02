@@ -5,10 +5,13 @@ import { SiteFooterSection } from "./SiteFooterSection";
 
 export const ContactKolawolCo = () => {
   useEffect(() => {
-    document.title = "Discutons de votre projet | Contact Kolawolé & Co.";
+    document.title = "Discutons de votre projet | Contact Lumen Agency";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute("content", "Contactez l'équipe de Kolawolé & Co. Discutons de votre projet de création de site web, application web ou identité visuelle.");
+      metaDesc.setAttribute(
+        "content",
+        "Contactez l'équipe de Lumen Agency. Discutons de votre projet de création de site web, application web, identité visuelle, shooting photo ou couverture vidéo."
+      );
     }
   }, []);
 

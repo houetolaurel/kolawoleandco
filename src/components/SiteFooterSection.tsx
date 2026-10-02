@@ -1,7 +1,6 @@
 import { type FormEvent, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
-import group from "../assets/group.svg";
 
 const expertiseLinks = [
   { label: "Design", href: "/expertise?expertise=design" },
@@ -32,13 +31,13 @@ export const SiteFooterSection = () => {
         {
           to_email: "kolawoleandco20@gmail.com",
           recipient_email: "kolawoleandco20@gmail.com",
-          to_name: "Kolawolé & Co.",
+          to_name: "Lumen Agency",
           name: "Nouvel Abonné Newsletter",
-          from_name: "Newsletter Kolawolé & Co.",
+          from_name: "Newsletter Lumen Agency",
           email: email.trim(),
           from_email: email.trim(),
           reply_to: email.trim(),
-          subject: "Nouvelle inscription à la Newsletter Kolawolé & Co.",
+          subject: "Nouvelle inscription à la Newsletter Lumen Agency",
           message: `Un nouvel utilisateur s'est inscrit à la newsletter : ${email.trim()}`,
           time: new Date().toLocaleString("fr-FR", {
             dateStyle: "long",
@@ -63,15 +62,15 @@ export const SiteFooterSection = () => {
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-12">
           {/* Logo column */}
           <div className="lg:col-span-4 flex flex-col gap-4">
-            <div className="relative w-44 h-14">
+            <div className="relative w-56 sm:w-64 h-18 sm:h-22">
               <img
-                className="w-full h-full object-contain"
-                alt="Kolawolé & Co."
-                src={group}
+                className="w-full h-full object-contain object-left"
+                alt="Lumen Agency"
+                src="/images/Logo%20Lumen%20Agency%20Light.svg"
               />
             </div>
             <p className="max-w-sm text-sm leading-relaxed text-[#3e4949]">
-              Agence digitale haut de gamme alliant design d'exception, robustesse logicielle et standards technologiques mondiaux.
+              Agence digitale haut de gamme alliant design d'exception, robustesse logicielle, photographie et couverture vidéo.
             </p>
           </div>
 
@@ -146,7 +145,7 @@ export const SiteFooterSection = () => {
         {/* Bottom copyright line */}
         <div className="mt-12 sm:mt-16 border-t border-[#bdc9c84c] pt-6 sm:pt-8 text-center">
           <p className="text-xs sm:text-sm text-[#6e7979]">
-            © 2026 Kolawolé &amp; Co. Tous droits réservés.
+            © 2026 Lumen Agency. Tous droits réservés.
           </p>
         </div>
       </div>

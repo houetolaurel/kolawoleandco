@@ -22,6 +22,7 @@ const subjects = [
   { value: "Création de site web", label: "Création de site web" },
   { value: "Application web", label: "Application web" },
   { value: "Identité visuelle", label: "Identité visuelle" },
+  { value: "Photographie & Couverture Vidéo", label: "Photographie & Couverture Vidéo" },
   { value: "Autre demande", label: "Autre demande" },
 ];
 
@@ -46,7 +47,7 @@ export const ContactFormSection = () => {
     const templateParams = {
       to_email: "kolawoleandco20@gmail.com",
       recipient_email: "kolawoleandco20@gmail.com",
-      to_name: "Kolawolé & Co.",
+      to_name: "Lumen Agency",
       name: formData.name,
       from_name: formData.name,
       email: formData.email,

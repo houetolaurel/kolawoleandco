@@ -3,12 +3,12 @@ import { ExpertiseServicesSection } from "../components/expertise/ExpertiseServi
 
 export const ExpertisePage = () => {
   useEffect(() => {
-    document.title = "Notre Expertise | Kolawolé & Co.";
+    document.title = "Notre Expertise | Lumen Agency";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
       metaDesc.setAttribute(
         "content",
-        "Découvrez l'expertise de Kolawolé & Co. en Design UI/UX, E-commerce et Développement web Fullstack. Des solutions digitales premium aux standards mondiaux."
+        "Découvrez l'expertise de Lumen Agency en Design UI/UX, E-commerce, Développement web Fullstack, Photographie professionnelle et Couverture Vidéo. Des solutions digitales et audiovisuelles de pointe."
       );
     }
   }, []);
@@ -24,7 +24,7 @@ export const ExpertisePage = () => {
         </h2>
         <p className="max-w-2xl text-lg text-[#3e4949] leading-relaxed">
           Discutons de vos besoins et trouvons ensemble la solution idéale
-          pour propulser votre présence digitale.
+          pour propulser votre présence digitale et valoriser vos événements.
         </p>
         <a
           href="/contact"
@@ -36,3 +36,5 @@ export const ExpertisePage = () => {
     </div>
   );
 };
+
+export default ExpertisePage;

@@ -2,10 +2,13 @@ import { useEffect } from "react";
 
 export const MentionsLegales = () => {
   useEffect(() => {
-    document.title = "Mentions Légales | Kolawolé & Co.";
+    document.title = "Mentions Légales | Lumen Agency";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute("content", "Consultez les mentions légales de l'agence Kolawolé & Co. Éditeur, hébergeur et conditions d'utilisation du site.");
+      metaDesc.setAttribute(
+        "content",
+        "Consultez les mentions légales de l'agence Lumen Agency. Éditeur, hébergeur et conditions d'utilisation du site."
+      );
     }
   }, []);
 
@@ -32,7 +35,7 @@ export const MentionsLegales = () => {
               En vertu de l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, il est précisé aux utilisateurs du site l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi :
             </p>
             <p>
-              <strong>Propriétaire :</strong> Kolawolé & Co.<br />
+              <strong>Propriétaire :</strong> Lumen Agency<br />
               <strong>Responsable publication :</strong> HOUETO Kolawolé Laurel – kolawoleandco20@gmail.com<br />
               <strong>Hébergeur :</strong> Vercel Inc. – 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis.
             </p>
@@ -48,24 +51,24 @@ export const MentionsLegales = () => {
           <section className="space-y-3">
             <h2 className="text-2xl font-semibold text-[#1b1c1c]">3. Description des services fournis</h2>
             <p>
-              Le site a pour objet de fournir une information concernant l'ensemble des activités de la société. Kolawolé & Co. s'efforce de fournir sur le site des informations aussi précises que possible. Toutefois, il ne pourra être tenu responsable des omissions, des inexactitudes et des carences dans la mise à jour, qu'elles soient de son fait ou du fait des tiers partenaires.
+              Le site a pour objet de fournir une information concernant l'ensemble des activités de la société. Lumen Agency s'efforce de fournir sur le site des informations aussi précises que possible. Toutefois, elle ne pourra être tenue responsable des omissions, des inexactitudes et des carences dans la mise à jour, qu'elles soient de son fait ou du fait des tiers partenaires.
             </p>
           </section>
 
           <section className="space-y-3">
             <h2 className="text-2xl font-semibold text-[#1b1c1c]">4. Propriété intellectuelle et contrefaçons</h2>
             <p>
-              Kolawolé & Co. est propriétaire des droits de propriété intellectuelle ou détient les droits d'usage sur tous les éléments accessibles sur le site, notamment les textes, images, graphismes, logo, icônes, sons, logiciels.
+              Lumen Agency est propriétaire des droits de propriété intellectuelle ou détient les droits d'usage sur tous les éléments accessibles sur le site, notamment les textes, images, graphismes, logo, icônes, sons, logiciels.
             </p>
             <p>
-              Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site est interdite, sauf autorisation écrite préalable de : Kolawolé & Co.
+              Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site est interdite, sauf autorisation écrite préalable de : Lumen Agency.
             </p>
           </section>
 
           <section className="space-y-3">
             <h2 className="text-2xl font-semibold text-[#1b1c1c]">5. Limitations de responsabilité</h2>
             <p>
-              Kolawolé & Co. ne pourra être tenu responsable des dommages directs et indirects causés au matériel de l'utilisateur, lors de l'accès au site.
+              Lumen Agency ne pourra être tenu responsable des dommages directs et indirects causés au matériel de l'utilisateur, lors de l'accès au site.
             </p>
           </section>
 
@@ -75,7 +78,7 @@ export const MentionsLegales = () => {
               À l'occasion de l'utilisation du site, peuvent être recueillies : l'URL des liens par l'intermédiaire desquels l'utilisateur a accédé au site, le fournisseur d'accès de l'utilisateur, l'adresse de protocole Internet (IP) de l'utilisateur.
             </p>
             <p>
-              Kolawolé & Co. ne collecte des informations personnelles relatives à l'utilisateur que pour le besoin de certains services proposés par le site (notamment via le formulaire de contact). L'utilisateur fournit ces informations en toute connaissance de cause.
+              Lumen Agency ne collecte des informations personnelles relatives à l'utilisateur que pour le besoin de certains services proposés par le site (notamment via le formulaire de contact). L'utilisateur fournit ces informations en toute connaissance de cause.
             </p>
           </section>
         </div>

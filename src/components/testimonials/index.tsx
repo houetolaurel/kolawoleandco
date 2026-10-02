@@ -8,10 +8,13 @@ import { SiteFooterSection } from "../SiteFooterSection";
 
 export const TmoignagesKolawol = () => {
   useEffect(() => {
-    document.title = "Témoignages Clients | Kolawolé & Co.";
+    document.title = "Témoignages Clients | Lumen Agency";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute("content", "Découvrez les avis et témoignages de nos clients qui ont fait confiance à Kolawolé & Co. pour élever leur présence digitale.");
+      metaDesc.setAttribute(
+        "content",
+        "Découvrez les avis et témoignages de nos clients et étudiants qui ont fait confiance à Lumen Agency pour élever leur présence digitale et immortaliser leurs soutenances."
+      );
     }
   }, []);
 

@@ -3,6 +3,8 @@ const accueilImage = "/images/accueil_image.jpg";
 import {
   PenTool,
   Code2,
+  Camera,
+  Video,
   Check,
   Briefcase,
   TrendingUp,
@@ -19,16 +21,30 @@ type IconComponent = ComponentType<LucideProps>;
 
 const uiFeatures = [
   "Recherche Utilisateur",
-  "Prototypage",
-  "Design System",
-  "Expérience utilisateur",
+  "Prototypage Interactif",
+  "Design System & UI Kits",
+  "Expérience Utilisateur (UX)",
 ];
 
 const developmentFeatures = [
-  "Applications Sur-Mesure",
+  "Applications Web Sur-Mesure",
   "Solutions E-commerce",
-  "Intégration API",
-  "Site vitrine",
+  "Architectures API & Cloud",
+  "Sites Vitrines Haute Performance",
+];
+
+const photographyFeatures = [
+  "Portraits & Événements Professionnels",
+  "Couverture de Soutenances & Galas",
+  "Shooting Produit & E-commerce",
+  "Retouche Haute Définition",
+];
+
+const videoFeatures = [
+  "Captation Événementielle 4K",
+  "Teasers & Spots Publicitaires",
+  "Montage & Motion Design",
+  "Interviews & Reportages",
 ];
 
 const socialLinks = [
@@ -62,7 +78,7 @@ const ServiceCard = ({
   checkColor,
   features,
 }: ServiceCardProps) => (
-  <article className={`flex flex-col gap-6 rounded-2xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.02)] border border-[#bdc9c833] backdrop-blur-md ${cardBg}`}>
+  <article className={`flex flex-col gap-6 rounded-2xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.02)] border border-[#bdc9c833] backdrop-blur-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${cardBg}`}>
     <div className={`flex h-14 w-14 items-center justify-center rounded-xl ${iconBg}`}>
       <MainIcon className={`h-7 w-7 ${iconColor}`} />
     </div>
@@ -100,8 +116,8 @@ export const AgencyServicesSection = () => {
               </span>
             </h1>
             <p className="max-w-xl text-base sm:text-lg text-[#3e4949] leading-relaxed">
-              Une approche sur-mesure alliant design d'exception et ingénierie de pointe
-              pour créer des expériences digitales qui marquent les esprits et génèrent de la valeur.
+              Une approche sur-mesure alliant design d'exception, ingénierie de pointe,
+              photographie professionnelle et couverture vidéo pour valoriser chaque instant.
             </p>
           </div>
 
@@ -113,7 +129,7 @@ export const AgencyServicesSection = () => {
                 <div className="aspect-[4/3] w-full overflow-hidden rounded-xl bg-gray-200">
                   <img
                     src={accueilImage}
-                    alt="Aperçu d'un projet réalisé par Kolawolé & Co."
+                    alt="Aperçu d'un projet réalisé par Lumen Agency."
                     className="h-full w-full object-cover"
                     width={600}
                     height={450}
@@ -140,9 +156,9 @@ export const AgencyServicesSection = () => {
         {/* SECTION EXPERTISE */}
         <div className="mt-28 flex flex-col items-center gap-12 text-center">
           <div className="max-w-2xl">
-            <h2 className="text-3xl font-bold text-[#1b1c1c] sm:text-4xl">Notre Expertise</h2>
+            <h2 className="text-3xl font-bold text-[#1b1c1c] sm:text-4xl">Nos Compétences &amp; Expertises</h2>
             <p className="mt-3 text-lg text-[#3e4949]">
-              Des solutions complètes pour répondre aux défis complexes de l'ère numérique.
+              Des solutions complètes en digital, design, photographie et production audiovisuelle.
             </p>
           </div>
 
@@ -168,6 +184,28 @@ export const AgencyServicesSection = () => {
               checkBg="bg-[#0100810d]"
               checkColor="text-[#010081]"
               features={developmentFeatures}
+            />
+            <ServiceCard
+              title="Photographie"
+              description="Captation photographique haute définition pour immortaliser vos événements, soutenances, portraits corporate et valoriser vos produits avec une lumière soignée."
+              icon={Camera}
+              iconBg="bg-[#ff008112]"
+              iconColor="text-[#ff0081]"
+              cardBg="bg-gradient-to-br from-[#ff008103] to-[#ff00810a]"
+              checkBg="bg-[#ff008112]"
+              checkColor="text-[#ff0081]"
+              features={photographyFeatures}
+            />
+            <ServiceCard
+              title="Couverture Vidéo"
+              description="Production audiovisuelle professionnelle, réalisation de reportages, captations d'événements et montage dynamique pour donner vie à vos projets."
+              icon={Video}
+              iconBg="bg-[#00808012]"
+              iconColor="text-[#008080]"
+              cardBg="bg-gradient-to-br from-[#00808003] to-[#0080800c]"
+              checkBg="bg-[#00808012]"
+              checkColor="text-[#008080]"
+              features={videoFeatures}
             />
           </div>
         </div>

@@ -1,25 +1,34 @@
 import { useMemo, useState } from "react";
 
+const boniZoulImg = "/images/boni_zoul.jpg"; // Soutenances IFRI
 const image1 = "/images/image1.jpg"; // E-commerce
 const image2 = "/images/image5.jpg"; // Prototype
 const image3 = "/images/image4.jpg"; // Mariage
 const image4 = "/images/image3.jpg"; // Hohaya
 const image5 = "/images/lmp.jpg"; // Location
 const image6 = "/images/image6.jpg"; // Diaspora Connect
+const soutenance = "/images/soutenance.jpg"
 
-type Filter = "Tous" | "Sites Web" | "Prototype interactif" | "E-commerce";
+type Filter =
+  | "Tous"
+  | "Sites Web"
+  | "Prototype interactif"
+  | "E-commerce"
+  | "Photographie & Vidéo";
 
 const filters: Filter[] = [
   "Tous",
   "Sites Web",
   "Prototype interactif",
   "E-commerce",
+  "Photographie & Vidéo",
 ];
 
 const chipStyles = {
   commerce: "bg-[#ff0081] text-white font-medium",
   web: "bg-[#008080] text-white font-medium",
   ui: "bg-[#19188c] text-white font-medium",
+  photo: "bg-[#ff0081] text-white font-medium",
   pink: "bg-[#ff008126] text-white font-semibold backdrop-blur-md border border-white/20",
   teal: "bg-[#00808033] text-white font-semibold backdrop-blur-md border border-white/20",
   blue: "bg-[#01008133] text-white font-semibold backdrop-blur-md border border-white/20",
@@ -53,11 +62,10 @@ const ProjectOverlay = ({
   large = false,
 }: OverlayProps) => (
   <>
-    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none transition-opacity duration-300 group-hover:from-black/90 group-hover:via-black/40" />
+    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent pointer-events-none transition-opacity duration-300 group-hover:from-black/95 group-hover:via-black/50" />
     <div
-      className={`absolute bottom-0 left-0 right-0 flex flex-col items-start gap-2.5 z-10 ${
-        large ? "p-6 sm:p-8 md:p-10" : "p-5 sm:p-6"
-      }`}
+      className={`absolute bottom-0 left-0 right-0 flex flex-col items-start gap-2.5 z-10 ${large ? "p-6 sm:p-8 md:p-10" : "p-5 sm:p-6"
+        }`}
     >
       <div className="flex flex-wrap items-center gap-2">
         {tags.map((tag) => (
@@ -65,14 +73,13 @@ const ProjectOverlay = ({
         ))}
       </div>
       <h3
-        className={`font-semibold text-white tracking-tight leading-snug ${
-          large ? "text-xl sm:text-2xl md:text-3xl" : "text-lg sm:text-xl"
-        }`}
+        className={`font-semibold text-white tracking-tight leading-snug ${large ? "text-xl sm:text-2xl md:text-3xl" : "text-lg sm:text-xl"
+          }`}
       >
         {title}
       </h3>
       {description && (
-        <p className="text-xs sm:text-sm md:text-base leading-relaxed text-white/80 max-w-xl line-clamp-2 sm:line-clamp-none">
+        <p className="text-xs sm:text-sm md:text-base leading-relaxed text-white/90 max-w-xl line-clamp-2 sm:line-clamp-none">
           {description}
         </p>
       )}
@@ -88,6 +95,8 @@ export const PortfolioShowcaseSection = () => {
 
   const visibleProjects = useMemo(
     () => ({
+      photoVideo:
+        activeFilter === "Tous" || activeFilter === "Photographie & Vidéo",
       ecommerce: activeFilter === "Tous" || activeFilter === "E-commerce",
       web: activeFilter === "Tous" || activeFilter === "Sites Web",
       prototype:
@@ -112,11 +121,10 @@ export const PortfolioShowcaseSection = () => {
             type="button"
             onClick={() => setActiveFilter(filter)}
             aria-pressed={activeFilter === filter}
-            className={`inline-flex items-center justify-center rounded-full px-5 py-2 text-xs sm:text-sm font-semibold tracking-wide transition-all duration-200 cursor-pointer ${
-              activeFilter === filter
+            className={`inline-flex items-center justify-center rounded-full px-5 py-2 text-xs sm:text-sm font-semibold tracking-wide transition-all duration-200 cursor-pointer ${activeFilter === filter
                 ? "bg-[#008080] text-white shadow-md"
                 : "border border-[#00808033] bg-transparent text-[#1b1c1c] hover:border-[#008080] hover:bg-[#0080800d]"
-            }`}
+              }`}
           >
             {filter}
           </button>
@@ -125,6 +133,33 @@ export const PortfolioShowcaseSection = () => {
 
       {/* Grille de projets fluide et responsive */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8 w-full">
+        {/* Projet NOUVEAU: Couverture des soutenances IFRI Juillet 2026 */}
+        {visibleProjects.photoVideo && (
+          <article
+            className={`${cardShell} lg:col-span-12 min-h-[340px] h-[380px] sm:h-[440px]`}
+            aria-label="Projet Couverture des soutenances IFRI Juillet 2026"
+          >
+            <img
+              className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+              alt="Couverture des soutenances IFRI Juillet 2026"
+              src={soutenance}
+              width={1200}
+              height={600}
+              loading="lazy"
+              decoding="async"
+            />
+            <ProjectOverlay
+              large
+              tags={[
+                { children: "Photographie", variant: "photo" },
+                { children: "Soutenance IFRI 2026", variant: "pink" },
+              ]}
+              title="Couverture des soutenances IFRI Juillet 2026"
+              description="Couverture médiatique et photographique intégrale des soutenances de mémoires à l'Institut de Formation et de Recherche en Informatique (IFRI), portraits des lauréats et réalisation vidéo officielle."
+            />
+          </article>
+        )}
+
         {/* Projet 1: E-commerce */}
         {visibleProjects.ecommerce && (
           <article

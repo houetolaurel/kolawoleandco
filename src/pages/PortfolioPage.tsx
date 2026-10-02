@@ -4,10 +4,13 @@ import { PortfolioShowcaseSection } from "../components/portfolio/PortfolioGalle
 
 export const PortfolioPage = () => {
   useEffect(() => {
-    document.title = "Nos Réalisations | Portfolio Kolawolé & Co.";
+    document.title = "Nos Réalisations | Portfolio Lumen Agency";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute("content", "Explorez le portfolio de Kolawolé & Co. Découvrez nos réalisations premium en Design UI/UX, e-commerce Shopify et applications web complexes.");
+      metaDesc.setAttribute(
+        "content",
+        "Explorez le portfolio de Lumen Agency. Découvrez nos réalisations premium en Design UI/UX, e-commerce Shopify, applications web et couverture photo & vidéo des soutenances IFRI."
+      );
     }
   }, []);
 
@@ -18,3 +21,5 @@ export const PortfolioPage = () => {
     </div>
   );
 };
+
+export default PortfolioPage;
