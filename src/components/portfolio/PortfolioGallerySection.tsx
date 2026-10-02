@@ -1,6 +1,5 @@
 import { useMemo, useState } from "react";
 
-const boniZoulImg = "/images/boni_zoul.jpg"; // Soutenances IFRI
 const image1 = "/images/image1.jpg"; // E-commerce
 const image2 = "/images/image5.jpg"; // Prototype
 const image3 = "/images/image4.jpg"; // Mariage
